@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LoadingFragment</string>
+    <string name="show_dialog">Show Dialog</string>
 </resources>

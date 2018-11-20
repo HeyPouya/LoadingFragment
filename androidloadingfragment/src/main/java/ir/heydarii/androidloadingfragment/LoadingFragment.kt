@@ -77,18 +77,22 @@ class LoadingFragment : DialogFragment() {
             }
 
 
-            //
-
+            //Main bundle to add other bundles to it
             val mainBundle = Bundle()
-            // if user wants to change the loading file
+
+            //file name bundle to add file name
             val fileNameBundle = Bundle()
             fileNameBundle.putString(FILE_NAME, fileName)
+
+            //cancelable bundle to add cancel type
             val isCancelableBundle = Bundle()
             isCancelableBundle.putBoolean(IS_CANCELABLE, isCancelable)
 
+            //adding other bundles to main bundle
             mainBundle.putBundle(FILE_NAME_BUNDLE, fileNameBundle)
             mainBundle.putBundle(IS_CANCELABLE_BUNDLE, isCancelableBundle)
 
+            //set main bundle as fragment's argument
             loadingFragment?.arguments = mainBundle
 
             return loadingFragment
