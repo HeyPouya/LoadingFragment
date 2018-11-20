@@ -1,7 +1,8 @@
 package ir.heydarii.loadingfragment
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ir.heydarii.androidloadingfragment.LoadingFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,6 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        LoadingFragment
+        LoadingFragment.getInstance()?.show(supportFragmentManager,"tag")
     }
 }
