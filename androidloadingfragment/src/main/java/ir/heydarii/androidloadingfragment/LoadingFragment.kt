@@ -13,12 +13,27 @@ import kotlinx.android.synthetic.main.fragment_loading.*
 
 
 private const val FILE_NAME = "fileName"
+private const val IS_CANCELABLE = "fileName"
+private const val FILE_NAME_BUNDLE = "fileNameBundle"
+private const val IS_CANCELABLE_BUNDLE = "isCancelableBundle"
 
 class LoadingFragment : DialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+
+        //set cancelable
+        setCancelableMethod()
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_loading, container, false)
+    }
+
+    private fun setCancelableMethod() {
+        //getting cancelable type
+        val cancelableType = arguments?.getBundle(IS_CANCELABLE_BUNDLE)?.getBoolean(IS_CANCELABLE)
+        cancelableType?.let { isCancelable = it }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,10 +43,11 @@ class LoadingFragment : DialogFragment() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
 
         //getting file name
-        val fileName = arguments?.getString(FILE_NAME)
+        val fileName = arguments?.getBundle(FILE_NAME_BUNDLE)?.getString(FILE_NAME)
 
         //setting up lottie
-        setUpLottieView(fileName)
+        fileName?.let { setUpLottieView(fileName) }
+
     }
 
     private fun setUpLottieView(fileName: String?) {
@@ -53,13 +69,27 @@ class LoadingFragment : DialogFragment() {
         /**
          * gets a file name that should be available in assets folder
          */
-        fun getInstance(fileName: String = "loading.json"): LoadingFragment? {
+        fun getInstance(fileName: String = "loading.json", isCancelable: Boolean = false): LoadingFragment? {
+
+
             if (loadingFragment == null) {
                 loadingFragment = LoadingFragment()
             }
-            val bundle = Bundle()
-            bundle.putString(FILE_NAME, fileName)
-            loadingFragment?.arguments = bundle
+
+
+            //
+
+            val mainBundle = Bundle()
+            // if user wants to change the loading file
+            val fileNameBundle = Bundle()
+            fileNameBundle.putString(FILE_NAME, fileName)
+            val isCancelableBundle = Bundle()
+            isCancelableBundle.putBoolean(IS_CANCELABLE, isCancelable)
+
+            mainBundle.putBundle(FILE_NAME_BUNDLE, fileNameBundle)
+            mainBundle.putBundle(IS_CANCELABLE_BUNDLE, isCancelableBundle)
+
+            loadingFragment?.arguments = mainBundle
 
             return loadingFragment
 
