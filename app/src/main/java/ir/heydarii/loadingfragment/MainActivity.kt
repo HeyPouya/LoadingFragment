@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     //shows dialog with a custom tag
     private fun showLoading() {
-        LoadingFragment.getInstance(isCancelable = true)?.show(supportFragmentManager, TAG)
+        LoadingFragment.getInstance(fileName = "sample.json",isCancelable = true)?.show(supportFragmentManager, TAG)
         hideLoading()
     }
 
