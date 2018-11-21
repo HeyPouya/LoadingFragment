@@ -56,13 +56,13 @@ to change the default animation:
 ## Note : to use this library with java
 
 ```
-    private fun showLoading() {
+    private void showLoading() {
         LoadingFragment.Companion.getInstance("loading.json",false).show(getSupportFragmentManager(),"TAG");
     }
 ```
 
 ```
-    private fun hideLoading() {
+    private void hideLoading() {
         LoadingFragment.Companion.getInstance("loading.json",false).dismissDialog();
     }
 ```
