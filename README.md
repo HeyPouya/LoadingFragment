@@ -35,7 +35,7 @@ A Simple LoadingFragment completely compatible with Kotlin and androidX
 
 ### To change the animation
 
-LoadingFragment is using lottie to show beatiful animations.
+LoadingFragment uses [lottie](https://github.com/airbnb/lottie-android) to show beatiful animations.
 to change the default animation:
 
 1- put your json file in assets folder
