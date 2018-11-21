@@ -32,6 +32,22 @@ A Simple LoadingFragment completely compatible with Kotlin and androidX
     }
 ```
 
+### To cahnge the animation
+
+LoadingFragment is using lottie to show beatiful animations.
+to change the default animation:
+
+1- put your json file in assets folder
+
+2- follow this code :
+```
+    private fun showLoading() {
+        LoadingFragment.getInstance(fileName = "your_file_name.json")?.show(supportFragmentManager, "TAG")
+        hideLoading()
+    }
+```
+
+
 ## Download
 
 #### Adding the depencency
