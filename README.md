@@ -21,7 +21,6 @@ A Simple LoadingFragment completely compatible with Kotlin and androidX
 ```
     private fun showLoading() {
         LoadingFragment.getInstance()?.show(supportFragmentManager, "TAG")
-        hideLoading()
     }
 ```
 ### To hide loading dialog
@@ -43,9 +42,31 @@ to change the default animation:
 ```
     private fun showLoading() {
         LoadingFragment.getInstance(fileName = "your_file_name.json")?.show(supportFragmentManager, "TAG")
-        hideLoading()
     }
 ```
+### To change cancelable
+
+```
+    private fun showLoading() {
+        LoadingFragment.getInstance(isCancelable = true)?.show(supportFragmentManager, "TAG")
+    }
+```
+
+
+## Note : to use this library with java
+
+```
+    private fun showLoading() {
+        LoadingFragment.Companion.getInstance("loading.json",false).show(getSupportFragmentManager(),"TAG");
+    }
+```
+
+```
+    private fun hideLoading() {
+        LoadingFragment.Companion.getInstance("loading.json",false).dismissDialog();
+    }
+```
+
 
 
 ## Download
