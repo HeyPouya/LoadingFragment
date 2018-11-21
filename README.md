@@ -32,7 +32,7 @@ A Simple LoadingFragment completely compatible with Kotlin and androidX
     }
 ```
 
-### To cahnge the animation
+### To change the animation
 
 LoadingFragment is using lottie to show beatiful animations.
 to change the default animation:
