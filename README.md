@@ -1,9 +1,13 @@
 # Loading Fragment 
 
-
 [![](https://jitpack.io/v/SirLordPouya/LoadingFragment.svg)](https://jitpack.io/#SirLordPouya/LoadingFragment)
 [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![Build Status](https://travis-ci.org/SirLordPouya/LoadingFragment.svg?branch=master)](https://travis-ci.org/SirLordPouya/LoadingFragment)
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/SirLordPouya/LoadingFragment/master/loading.png" width="250">
+</p>
+
 
 
 A Simple LoadingFragment completely compatible with Kotlin and androidX
@@ -100,3 +104,5 @@ LoadingFragment is released under the Apache License 2.0. See LICENSE for detail
 Copyright (c) 2018 Pouya Heydari
 
 ```
+
+<div>Icon is made by <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/"title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
