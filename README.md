@@ -5,17 +5,16 @@
 [![Build Status](https://travis-ci.org/SirLordPouya/LoadingFragment.svg?branch=master)](https://travis-ci.org/SirLordPouya/LoadingFragment)
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/SirLordPouya/LoadingFragment/master/loading.png" width="250">
+<img src="https://raw.githubusercontent.com/SirLordPouya/LoadingFragment/master/loading.png" width="150">
 </p>
 
-**A Simple full screen LoadingFragment for Android apps**
+<p align="center">
+A Simple full screen LoadingFragment for Android apps
+</p>
 
 <p align="center">
 <img src="https://github.com/SirLordPouya/LoadingFragment/blob/master/loading_fragment.gif" width="400">
 </p>
-
-#### latest version: [![](https://jitpack.io/v/SirLordPouya/LoadingFragment.svg)](https://jitpack.io/#SirLordPouya/LoadingFragment)
-
 
 ## Usage:
 
