@@ -9,8 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.airbnb.lottie.LottieDrawable
-import kotlinx.android.synthetic.main.fragment_loading.*
-
+import ir.heydarii.androidloadingfragment.databinding.FragmentLoadingBinding
 
 private const val FILE_NAME = "fileName"
 private const val IS_CANCELABLE = "fileName"
@@ -19,39 +18,42 @@ private const val IS_CANCELABLE_BUNDLE = "isCancelableBundle"
 
 class LoadingFragment : DialogFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private var _binding: FragmentLoadingBinding? = null
+    private val binding get() = _binding!!
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
         //set cancelable
         setCancelableMethod()
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_loading, container, false)
+        _binding = FragmentLoadingBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     private fun setCancelableMethod() {
         //getting cancelable type
         val cancelableType = arguments?.getBundle(IS_CANCELABLE_BUNDLE)?.getBoolean(IS_CANCELABLE)
         cancelableType?.let { isCancelable = it }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //making background color transparent
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         //getting file name
         val fileName = arguments?.getBundle(FILE_NAME_BUNDLE)?.getString(FILE_NAME)
 
         //setting up lottie
         fileName?.let { setUpLottieView(fileName) }
-
     }
 
-    private fun setUpLottieView(fileName: String?) {
-        // lottie has defined in the layout file
+    private fun setUpLottieView(fileName: String?) = with(binding) {
         lottie.setAnimation(fileName)
         lottie.playAnimation()
         lottie.repeatCount = LottieDrawable.INFINITE
@@ -64,18 +66,19 @@ class LoadingFragment : DialogFragment() {
 
     companion object {
 
-        private var loadingFragment: LoadingFragment? = null
+        private var mLoadingFragment: LoadingFragment? = null
 
         /**
          * gets a file name that should be available in assets folder
          */
-        fun getInstance(fileName: String = "loading.json", isCancelable: Boolean = false): LoadingFragment? {
+        fun getInstance(
+            fileName: String = "loading.json",
+            isCancelable: Boolean = false
+        ): LoadingFragment {
 
-
-            if (loadingFragment == null) {
-                loadingFragment = LoadingFragment()
+            if (mLoadingFragment == null) {
+                mLoadingFragment = LoadingFragment()
             }
-
 
             //Main bundle to add other bundles to it
             val mainBundle = Bundle()
@@ -93,11 +96,9 @@ class LoadingFragment : DialogFragment() {
             mainBundle.putBundle(IS_CANCELABLE_BUNDLE, isCancelableBundle)
 
             //set main bundle as fragment's argument
-            loadingFragment?.arguments = mainBundle
+            mLoadingFragment?.arguments = mainBundle
 
-            return loadingFragment
-
+            return mLoadingFragment!!
         }
     }
-
 }
